@@ -11,7 +11,7 @@ const app = express();
 
 // View engine EJS
 app.set('view engine', 'ejs');
-app.set('view', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'view'));
 
 // Middleware logger dipasang paling awal agar semua request tercatat
 app.use(logger);

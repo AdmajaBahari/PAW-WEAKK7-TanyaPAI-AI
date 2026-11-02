@@ -1,0 +1,38 @@
+<%- include('partials/header') %>
+
+<main class="max-w-5xl mx-auto w-full px-4 py-8 space-y-8">
+  <section class="rounded-2xl bg-gradient-to-r from-indigo-600 to-violet-600 text-white p-8 shadow">
+    <p class="text-xs uppercase tracking-widest opacity-80">PAW - Week 7</p>
+    <h1 class="text-2xl sm:text-3xl font-bold mt-1">Integrasi Frontend, REST API, dan Middleware Logger</h1>
+    <p class="mt-2 text-sm opacity-90">TanyaPAI-Ai, asisten AI pembelajaran PAI untuk SD Negeri Bagelen. Aplikasi web sederhana dengan frontend lokal, endpoint API, dan pencatatan request.</p>
+    <p class="mt-4 inline-block bg-white/20 rounded-full px-3 py-1 text-xs">Server aktif: <%= uptime %></p>
+  </section>
+
+  <section>
+    <div class="flex items-center justify-between mb-3">
+      <h2 class="text-xl font-semibold">Fitur TanyaPAI-Ai</h2>
+      <span class="text-sm text-slate-500"><%= produk.length %> fitur</span>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <% produk.forEach(function (p) { %>
+        <article class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm hover:shadow-md transition">
+          <span class="text-xs font-medium bg-indigo-50 text-indigo-700 rounded-full px-2 py-0.5"><%= p.kategori %></span>
+          <h3 class="mt-2 font-semibold"><%= p.nama %></h3>
+          <p class="text-sm text-slate-600 mt-1"><%= p.deskripsi %></p>
+          <p class="text-xs text-slate-500 mt-2">Prioritas: <%= p.prioritas %></p>
+        </article>
+      <% }); %>
+    </div>
+  </section>
+
+  <section class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
+    <h2 class="font-semibold mb-2">Endpoint API</h2>
+    <ul class="text-sm space-y-1">
+      <li><code class="bg-slate-100 rounded px-1.5 py-0.5">GET /api/status</code> - status server (JSON)</li>
+      <li><code class="bg-slate-100 rounded px-1.5 py-0.5">GET /api/produk</code> - data produk (array JSON)</li>
+    </ul>
+  </section>
+</main>
+
+<%- include('partials/footer') %>
